@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
-export default function Section({ data ,cart,setCart}) {
-  // Initialize an array of booleans for toggle states
+export default function Section({data ,cart,setCart}) {
+  // Initialize an array of booleans for toggle states, corresponding to each product
   const initialToggleState = data.map(() => true);
   const [toggleStates, setToggleStates] = useState(initialToggleState);
 
-  // Function to handle toggle
+  // Function to handle toggle and update cart count
   const handleToggleAndCart = (index) => {
     const newToggleStates = [...toggleStates];
-    const isAddingToCart = newToggleStates[index];
-    newToggleStates[index] = !newToggleStates[index];
-    setToggleStates(newToggleStates);
-    setCart(cart + (isAddingToCart ? 1 : -1));
+    const isAddingToCart = newToggleStates[index]; // Check if we are adding to cart
+    newToggleStates[index] = !newToggleStates[index]; // Toggle the state
+    setToggleStates(newToggleStates); // Update the toggle states
+    setCart(cart + (isAddingToCart ? 1 : -1)); // Update the cart count
   };
 
 

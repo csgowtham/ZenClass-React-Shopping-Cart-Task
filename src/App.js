@@ -6,30 +6,30 @@ import Footer from './Footer'
 
 
 function App() {
-  
+  // Use useState hook to manage the state of the cart
   let [cart,setCart] = useState(0);
-
+  // Define an array of product data, each with an id, image, productName, price, and description
   const data = [
     {
       id: 1,
-      image: 'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1683562472/Croma%20Assets/Communication/Mobiles/Images/267258_0_ii7gma.png?tr=w-600',
-      productName: 'Redmi Note 12 Pro+ 5G',
-      price: '₹19,999',
-      description: 'Display: 6.67-inch (1080x2000), Front Camera: 16MP, Rear Camera: 200MP + 8MP + 2MP, RAM: 8GB, Storage: 256GB, Battery Capacity: 4980mAh'
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuc-1cn9vom_KWJVqSgmxGgThjIcMig47DNN1lIkd_Pg&s',
+      productName: 'Samsung Galaxy S21',
+      price: '₹28,999',
+      description: 'The Samsung Galaxy S21 features a 6.2-inch Dynamic AMOLED display, Exynos 2100 processor, 8GB RAM, and a triple-camera setup for stunning photos and videos.'
       
     },
     {
       id: 2,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSq1JZatvkhyjCwsTslHG3Kft1-Vzy8O95RATIAmC-A&s',
-      productName: 'LG Double Door Refrigerator',
-      price: '₹45,999',
-      description: 'Capacity: 407L, Energy Rating: 4 Star, Cooling Technology: Multi Air Flow, Dimensions: 70.3 x 68.6 x 178.5 cm'
+      image: 'https://5.imimg.com/data5/SELLER/Default/2022/9/MM/YA/KS/55789556/apple-macbook-air-m1-chip.jpg',
+      productName: 'Apple MacBook Air (M1)',
+      price: '₹72,299',
+      description: 'The MacBook Air with M1 chip offers unparalleled performance and battery life in a sleek and lightweight design. Features a 13.3-inch Retina display and 256GB SSD.'
     },
     {
       id: 3,
-      image: 'https://nandilathgmart.com/wp-content/uploads/2023/05/43x70l-381.jpg',
-      productName: 'Sony Bravia 55 inch 4K UHD Smart TV',
-      price: '₹89,999',
+      image: 'https://www.lg.com/content/dam/channel/wcms/in/images/refrigerators/gr-x31fmqhl_amcqebn_eail_in_c/GR-X31FMQHL-Refrigerators-Food-Front-Light-On-450.jpg',
+      productName: 'LG InstaView Door-in-Door Refrigerator',
+      price: '₹1,61,999',
       description: 'Resolution: 3840x2160, HDR: Yes, Smart TV Features: Android, Connectivity: 4 HDMI, 3 USB, Sound Output: 20W'
     },
     {
@@ -41,38 +41,38 @@ function App() {
     },
     {
       id: 5,
-      image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSH6fT3jhX3fQ-CfkYHb98GqQPRIfHO0AGWW-VLIs7ZIxpywF0HUAWnsmUFOvQytrUn4z2PqEn7M9cM6gYBodaU6EEAjA_TF2xiPZUroT1F&usqp=CAE',
-      productName: 'Dyson Supersonic Hair Dryer',
-      price: '₹29,999',
-      description: 'Power: 1600W, Technology: Air Multiplier, Heat Settings: 3, Speed Settings: 3, Attachments: 5'
+      image: 'https://m.media-amazon.com/images/I/71GIYSZpW+L._SX679_.jpg',
+      productName: 'Apple Watch 7 Series',
+      price: '₹41,999',
+      description: 'The Apple Watch Series 7 offers a larger, always-on Retina display, advanced health monitoring, and robust fitness tracking features.'
     },
     {
       id: 6,
-      image: 'https://assets.myntassets.com/fl_progressive/h_960,q_80,w_720/v1/assets/images/2196728/2018/2/13/11518522610522-Roadster-Men-Navy-Blue-Solid-Round-Neck-T-shirt-8451518522610271-1.jpg',
-      productName: 'Roadster Men’s Solid T-Shirt',
-      price: '₹599',
-      description: 'Material: Cotton, Fit: Regular, Sleeve: Half Sleeve, Neck: Round Neck, Color: Black'
+      image: 'https://m.media-amazon.com/images/I/61qS1eDVy9S._SX679_.jpg',
+      productName: 'Microsoft Surface Pro 7 ',
+      price: '₹30599',
+      description: 'The Microsoft Surface Pro 7 is a versatile 2-in-1 tablet with a 12.3-inch touchscreen, Intel Core i5 processor, and 8GB RAM. Perfect for both work and play.'
     },
     {
       id: 7,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaLbBvE_vY-QPU8v_gnmSLT8pRnbk17h_BgjkquIKm2A&s',
-      productName: 'Handmade Crochet Octopus',
-      price: '₹1,299',
-      description: 'Material: Cotton Yarn, Filling: Polyester Fiber, Size: 15cm, Color: Blue, Handcrafted with love'
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBgKUbbQX0lcIqvkR_bIA3hBlHV5XoySD_bGiTnD47g&s',
+      productName: 'Bose QuietComfort 35 II Wireless Bluetooth Headphones',
+      price: '₹3,299',
+      description: 'Bose QuietComfort 35 II are wireless noise-cancelling headphones known for their superior sound quality and comfort, perfect for travel and daily commutes.'
     },
     {
       id: 8,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Xjv6Hl7X8w9sN9KNoD_-veCAditmd9GTfmRhYL2u5g&s',
-      productName: 'SanDisk Cruzer Blade 64GB USB Flash Drive',
-      price: '₹499',
-      description: 'Storage Capacity: 64GB, Interface: USB 2.0, Form Factor: Compact, Color: Black and Red, Warranty: 5 Years'
+      image: 'https://in.canon/media/image/2020/07/04/862a1f43feed4fab85897aee45b6324c_R5_Front_BODY.png',
+      productName: 'Canon EOS R5 Camera',
+      price: '₹3,65,995',
+      description: 'The Canon EOS R5 is a professional-grade mirrorless camera with a 45MP full-frame sensor, 8K video recording, and advanced autofocus capabilities.'
     },
     {
       id: 9,
-      image: 'https://www.justcanon.in/cdn/shop/products/eos-1500d_04.jpg?v=1659021357',
-      productName: 'Canon EOS 1500D DSLR Camera',
-      price: '₹39,999',
-      description: 'Resolution: 24.1MP, Sensor: APS-C CMOS, Lens: 18-55mm, Display: 3-inch, Connectivity: Wi-Fi, NFC'
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAX-lQFsbB4zb5rOzDd_BONMXwJeBHbp79JGgCJv5AMQ&s',
+      productName: 'WHIRLPOOL WFW6620HC Washing Machine',
+      price: '₹1,43,999',
+      description: 'The Whirlpool front load washer offers a 4.5 cu. ft. capacity, Load & Go dispenser, and intuitive controls, making laundry day easier than ever.'
     },
     {
       id: 10,
@@ -99,13 +99,17 @@ function App() {
   
 
   return <>
+    {/* NavBar component, passing the cart state to display the number of items */}
     <NavBar cart={cart}/>
+    {/* Header component */}
     <Header/>
+    {/* Section component, passing the product data, cart state, and setCart function */}
     <Section 
       data = {data} 
       cart = {cart}
       setCart = {setCart}
     />
+    {/* Footer component */}
     <Footer/>
   </>
 }
